@@ -4,18 +4,15 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
-    private int frame = 0;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private float countdown = 4f;
 
     // Update is called once per frame
     void Update()
     {
-        frame += 1;
-        if (frame == 240*4)
-            Destroy(gameObject);
+        countdown -= Time.deltaTime;
+        if (countdown <= 0f){
+            FindObjectOfType<MapDestroyer>().Explode(transform.position);
+           Destroy(gameObject); 
+        }
     }
 }
