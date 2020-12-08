@@ -15,6 +15,7 @@ public class MapDestroyer : MonoBehaviour
     {
         Vector3Int originCell = tilemap.WorldToCell(worldPos);
         ExplodeCell(originCell);
+        GetComponent<AudioSource>().Play();
         bool left = true;
         bool right = true;
         bool up = true;
@@ -31,18 +32,14 @@ public class MapDestroyer : MonoBehaviour
     bool ExplodeCell(Vector3Int cell) 
     {
         Tile tile = tilemap.GetTile<Tile>(cell);
-        if (tile == wallTile)
+         if (tile == wallTile)
         {
             return false;
         }
         
-        if (tile == destructibleTile)
-        {
-            tilemap.SetTile(cell, null);
-        }
 
         Vector3 pos = tilemap.GetCellCenterWorld(cell);
-        Instantiate(explosionPrefab,pos, Quaternion.identity);
+        Instantiate(explosionPrefab, pos, Quaternion.identity);
         return true;
     }
 }
