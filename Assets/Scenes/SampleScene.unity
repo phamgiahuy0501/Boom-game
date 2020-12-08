@@ -505,8 +505,8 @@ GameObject:
   - component: {fileID: 733245721}
   - component: {fileID: 733245720}
   - component: {fileID: 733245722}
-  - component: {fileID: 733245723}
   - component: {fileID: 733245724}
+  - component: {fileID: 733245723}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -606,7 +606,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 1
+  m_Mass: 0.5436714
   m_LinearDrag: 1
   m_AngularDrag: 1
   m_GravityScale: 0
@@ -634,32 +634,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!61 &733245723
-BoxCollider2D:
+--- !u!58 &733245723
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 733245717}
   m_Enabled: 1
-  m_Density: 0
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.05}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6, y: 0.6}
-  m_EdgeRadius: 0
+  m_Radius: 0.32
 --- !u!114 &733245724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -675,6 +665,9 @@ MonoBehaviour:
   Player: {fileID: 733245719}
   bombPrefab: {fileID: 1539574052200619941, guid: 36c0e18ba5835574ca338b39dfcb3e6f,
     type: 3}
+  bombMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!4 &946749982 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3878983363950249528, guid: 5a4d47bef6625dd45bf53fb082cda0f5,
@@ -4182,7 +4175,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilemap: {fileID: 1528833077}
   wallTile: {fileID: 11400000, guid: d3322df45870b0b4b92cd10a7c0960f7, type: 2}
-  destructibleTile: {fileID: 11400000, guid: 89a97ee783143e94cae54259b38659be, type: 2}
+  explosionMask:
+    serializedVersion: 2
+    m_Bits: 55
   explosionPrefab: {fileID: 5078488531140466796, guid: bedef9642589d8c4aa1c2883e9034e92,
     type: 3}
   length: 3

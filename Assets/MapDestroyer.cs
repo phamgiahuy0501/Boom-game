@@ -7,15 +7,18 @@ public class MapDestroyer : MonoBehaviour
 {
     public Tilemap tilemap;
     public Tile wallTile;
-    public Tile destructibleTile;
+    public LayerMask explosionMask;
 
     public GameObject explosionPrefab;
     public int length = 3;
-    public void Explode(Vector2 worldPos)
+    private bool isCrashed = false;
+    public void Explode(Vector2 worldPos, bool isTriggerByAnotherBomb)
     {
         Vector3Int originCell = tilemap.WorldToCell(worldPos);
         ExplodeCell(originCell);
-        GetComponent<AudioSource>().Play();
+        if (!isTriggerByAnotherBomb){
+            GetComponent<AudioSource>().Play();
+        }
         bool left = true;
         bool right = true;
         bool up = true;
@@ -37,9 +40,17 @@ public class MapDestroyer : MonoBehaviour
             return false;
         }
         
+        
 
         Vector3 pos = tilemap.GetCellCenterWorld(cell);
         Instantiate(explosionPrefab, pos, Quaternion.identity);
+        if (Physics2D.OverlapCircleAll(pos,0.1f,explosionMask,0f,0f).Length != 0){
+            isCrashed = true;
+        }
+        if (isCrashed){
+            isCrashed = false;
+            return false;
+        }
         return true;
     }
 }

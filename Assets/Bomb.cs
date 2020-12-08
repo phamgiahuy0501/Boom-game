@@ -11,16 +11,16 @@ public class Bomb : MonoBehaviour
     {
         countdown -= Time.deltaTime;
         if (countdown <= 0f){
-            Explode();
+            Explode(false);
         }
     }
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.layer == 8){
-            Explode();
+            Explode(true);
         }
     }
-    void Explode(){
-            FindObjectOfType<MapDestroyer>().Explode(transform.position);
+    void Explode(bool isTriggerByAnotherBomb){
+            FindObjectOfType<MapDestroyer>().Explode(transform.position,isTriggerByAnotherBomb);
             Destroy(gameObject); 
     }
 }
