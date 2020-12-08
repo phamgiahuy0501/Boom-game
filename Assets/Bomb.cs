@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bomb : MonoBehaviour
 {
     private float countdown = 4f;
-
+    private int bombLength = 1;
     // Update is called once per frame
     void Update()
     {
@@ -20,7 +20,10 @@ public class Bomb : MonoBehaviour
         }
     }
     void Explode(bool isTriggerByAnotherBomb){
-            FindObjectOfType<MapDestroyer>().Explode(transform.position,isTriggerByAnotherBomb);
+            FindObjectOfType<MapDestroyer>().Explode(transform.position,isTriggerByAnotherBomb, bombLength);
             Destroy(gameObject); 
+    }
+    void setLength(int length){
+        bombLength = length;
     }
 }

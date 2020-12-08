@@ -10,9 +10,8 @@ public class MapDestroyer : MonoBehaviour
     public LayerMask explosionMask;
 
     public GameObject explosionPrefab;
-    public int length = 3;
     private bool isCrashed = false;
-    public void Explode(Vector2 worldPos, bool isTriggerByAnotherBomb)
+    public void Explode(Vector2 worldPos, bool isTriggerByAnotherBomb, int length)
     {
         Vector3Int originCell = tilemap.WorldToCell(worldPos);
         ExplodeCell(originCell);

@@ -8,6 +8,7 @@ public class BombPlanting : MonoBehaviour
     public Transform Player;
     public GameObject bombPrefab;
     public LayerMask bombMask;
+    private int bombLength = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +33,16 @@ public class BombPlanting : MonoBehaviour
             if (c[i].gameObject.tag == "Bomb")
                 return;
         }
-        Instantiate(bombPrefab,bombPosition,Player.rotation);
+        GameObject go = Instantiate(bombPrefab,bombPosition,Player.rotation) as GameObject;
+        go.SendMessage("setLength",bombLength);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.tag == "Fire Amulet"){
+            bombLength += 1;
+            Destroy(other.gameObject);
+        }
+
     }
     
 }
