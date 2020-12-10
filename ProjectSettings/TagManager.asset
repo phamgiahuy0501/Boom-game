@@ -7,6 +7,7 @@ TagManager:
   - Box
   - Bomb
   - Fire Amulet
+  - Bomb Amulet
   layers:
   - Default
   - TransparentFX
@@ -17,8 +18,8 @@ TagManager:
   - 
   - 
   - Explosion
-  - 
-  - 
+  - Box
+  - Amulet
   - 
   - 
   - 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Explosion : MonoBehaviour
 {
-    private float countdown = 0.8f;
+    private float countdown = 0.7f;
     private void Start() {
     }
     // Update is called once per frame

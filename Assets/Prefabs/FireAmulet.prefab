@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7902847365953261276}
   - component: {fileID: 7902847365953261275}
   - component: {fileID: 7902847365953261278}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FireAmulet
   m_TagString: Fire Amulet
   m_Icon: {fileID: 0}
