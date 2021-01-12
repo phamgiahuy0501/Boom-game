@@ -1,0 +1,7 @@
+Usersname : 8zeYo11xMn
+Password : ViyXMFiyZr
+Database name : 8zeYo11xMm
+Server : remotemysql.com
+Port : 3306
+
+Admin page : https://remotemysql.com/phpmyadmin/index.php
