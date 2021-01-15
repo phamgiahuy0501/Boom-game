@@ -7,9 +7,12 @@ public class Bomb : MonoBehaviour
     private float countdown = 4f;
     private int bombLength = 1;
     public Rigidbody2D rigid;
+    public Transform bomb;
+    private static GameObject player;
     // Update is called once per frame
     void Start() {
-        //rigid.simulated = false;
+        player = GameObject.FindWithTag("Player");
+        Physics2D.IgnoreCollision(bomb.GetComponent<Collider2D>(), player.GetComponent<Collider2D>());
     }
     void Update()
     {
@@ -17,11 +20,23 @@ public class Bomb : MonoBehaviour
         if (countdown <= 0f){
             Explode(false);
         }
+        float distance = Vector2.Distance(bomb.position, player.transform.position);
+        if (distance >= 1.0f){
+            Physics2D.IgnoreCollision(bomb.GetComponent<Collider2D>(), player.GetComponent<Collider2D>(), false );
+        }
     }
     private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.layer == 8){
+        int layer = other.gameObject.layer;
+        switch (layer)
+        {
+            case 8:
             Explode(true);
+            break;
+            case 13:
+            Explode(false);
+            break;
         }
+        Destroy(other.gameObject);
     }
     void Explode(bool isTriggerByAnotherBomb){
         FindObjectOfType<BombPlanting>().isExploded();
@@ -33,7 +48,8 @@ public class Bomb : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D other) {
         if (other.gameObject.layer == 12){
-            rigid.simulated = true;
+            Debug.Log("exit");
+            Physics2D.IgnoreCollision(bomb.GetComponent<Collider2D>(), player.GetComponent<Collider2D>(), false );
         }
     }
 }

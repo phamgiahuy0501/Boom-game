@@ -26,6 +26,7 @@ public class BombPlanting : MonoBehaviour
     void PlantBomb() {
         if (bombAmount == 0)
             return;
+        GetComponent<AudioSource>().Play();
         bombAmount -= 1;
         Vector3 bombPosition = Player.position;
         bombPosition.x = Mathf.Round(bombPosition.x); 

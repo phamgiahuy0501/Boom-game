@@ -24,5 +24,10 @@ public class Box : MonoBehaviour
         if (other.gameObject.layer == 8){
             Destroy(gameObject);
         }
+        else if (other.gameObject.layer == 13){
+            other.gameObject.GetComponent<AudioSource>().Play();
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+        }
     }
 }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -8185981470011350422}
   - component: {fileID: 8615115555802108415}
   - component: {fileID: 5036184137996120820}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Bomb
   m_TagString: Bomb
   m_Icon: {fileID: 0}
@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigid: {fileID: -8185981470011350422}
+  bomb: {fileID: 1539574052200619939}
 --- !u!50 &-8185981470011350422
 Rigidbody2D:
   serializedVersion: 4
@@ -148,7 +149,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.0077520213, y: -0.03876869}
