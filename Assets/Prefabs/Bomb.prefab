@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2adfe0a89097de47a747829a64e5202, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rigid: {fileID: -8185981470011350422}
 --- !u!50 &-8185981470011350422
 Rigidbody2D:
   serializedVersion: 4
@@ -111,13 +112,13 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!95 &8615115555802108415
 Animator:
   serializedVersion: 3

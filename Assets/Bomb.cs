@@ -6,7 +6,11 @@ public class Bomb : MonoBehaviour
 {
     private float countdown = 4f;
     private int bombLength = 1;
+    public Rigidbody2D rigid;
     // Update is called once per frame
+    void Start() {
+        //rigid.simulated = false;
+    }
     void Update()
     {
         countdown -= Time.deltaTime;
@@ -26,5 +30,10 @@ public class Bomb : MonoBehaviour
     }
     void setLength(int length){
         bombLength = length;
+    }
+    private void OnTriggerExit2D(Collider2D other) {
+        if (other.gameObject.layer == 12){
+            rigid.simulated = true;
+        }
     }
 }
