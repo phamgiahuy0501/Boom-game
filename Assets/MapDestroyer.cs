@@ -41,11 +41,7 @@ public class MapDestroyer : MonoBehaviour
 
         Vector3 pos = tilemap.GetCellCenterWorld(cell);
         Instantiate(explosionPrefab, pos, Quaternion.identity);
-        if (Physics2D.OverlapCircleAll(pos,0.1f,explosionMask,0f,0f).Length != 0){
-            isCrashed = true;
-        }
-        if (isCrashed){
-            isCrashed = false;
+        if (Physics2D.OverlapCircleAll(pos,0.01f,explosionMask,0f,0f).Length != 0){
             return false;
         }
         return true;

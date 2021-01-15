@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -18,14 +19,29 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (currentHealth <=0)
         {
-            TakeDamage(20);
-        }   
+            // LOSE
+            Debug.Log("Lose");
+            SceneManager.LoadScene(1);
+        }
     }
     void TakeDamage(int damage)
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
+    }
+    private void OnTriggerEnter2D(Collider2D other) {
+        int layer = other.gameObject.layer;
+        switch (layer)
+        {
+            case 8:
+            TakeDamage(25);
+            break;
+            case 13:
+            TakeDamage(20);
+            break;
+        }
+        
     }
 }
