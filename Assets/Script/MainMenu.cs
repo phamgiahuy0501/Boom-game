@@ -18,7 +18,7 @@ public class MainMenu : MonoBehaviour
     public void freetrialClicked()
     {
         freetrialStatus = true;
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(4);
     }
 
     public void quitClicked()
