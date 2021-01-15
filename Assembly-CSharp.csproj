@@ -67,6 +67,7 @@
     <Compile Include="Assets\Bomb.cs" />
     <Compile Include="Assets\BombPlanting.cs" />
     <Compile Include="Assets\Box.cs" />
+    <Compile Include="Assets\Enemy.cs" />
     <Compile Include="Assets\EnemyMovement.cs" />
     <Compile Include="Assets\Explosion.cs" />
     <Compile Include="Assets\HealthBar.cs" />
