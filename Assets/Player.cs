@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     public int maxHealth = 100;
-    public int currentHealth;
+    public static int currentHealth;
 
     public HealthBar healthBar;
     // Start is called before the first frame update
@@ -23,7 +23,6 @@ public class Player : MonoBehaviour
         {
             // LOSE
             Debug.Log("Lose");
-            SceneManager.LoadScene(5);
         }
     }
     void TakeDamage(int damage)

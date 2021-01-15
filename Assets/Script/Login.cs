@@ -22,6 +22,7 @@ public class Login : MonoBehaviour
 
     public void signupClicked()
     {
+        /*MainMenu.freetrialStatus = false;*/
         SceneManager.LoadScene(2);
     }
 }

@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour
     private bool optionPanelStatus = false;
     public static bool freetrialStatus;
     public GameObject optionPanel;
+    public GameObject mainMenuPanel;
 
     public void loginClicked()
     {
@@ -28,6 +29,7 @@ public class MainMenu : MonoBehaviour
 
     public void optionClicked()
     {
+        mainMenuPanel.SetActive(optionPanelStatus);
         optionPanelStatus = !optionPanelStatus;
         optionPanel.SetActive(optionPanelStatus);
     }

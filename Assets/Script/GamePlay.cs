@@ -2,12 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class PauseMenu : MonoBehaviour
+public class GamePlay : MonoBehaviour
 {
     public static bool GameIsPaused = false;
-    public GameObject pauseMenuUI;
+    public GameObject pauseMenuPanel;
+    public GameObject gameOverPanel;
     // Update is called once per frame
+
+    private void Start()
+    {
+        GameIsPaused = false;
+        pauseMenuPanel.SetActive(false);
+        gameOverPanel.SetActive(false);
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -20,25 +29,34 @@ public class PauseMenu : MonoBehaviour
                 Pause();
             }
         }
+
+        if (Player.currentHealth <= 0)
+        {
+            gameOverPanel.SetActive(true);
+            Time.timeScale = 0f;
+        }
     }
+
     public void Resume()
     {
-        pauseMenuUI.SetActive(false);
+        pauseMenuPanel.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
     }
     void Pause()
     {
-        pauseMenuUI.SetActive(true);
+        pauseMenuPanel.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
     }
     public void LoadMenu()
     {
-        // SceneManager.LoadScene("Menu");
-    }
-    public void QuitGame()
-    {
-        Application.Quit();
+        if (MainMenu.freetrialStatus)
+        {
+            SceneManager.LoadScene(0);
+        } else
+        {
+            SceneManager.LoadScene(3);
+        }
     }
 }

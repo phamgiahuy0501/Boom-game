@@ -683,11 +683,12 @@
     <Compile Include="Assets\HealthBar.cs" />
     <Compile Include="Assets\MapDestroyer.cs" />
     <Compile Include="Assets\Obstacle.cs" />
-    <Compile Include="Assets\PauseMenu.cs" />
     <Compile Include="Assets\Player.cs" />
     <Compile Include="Assets\PlayerMovement.cs" />
+    <Compile Include="Assets\Script\GamePlay.cs" />
     <Compile Include="Assets\Script\Login.cs" />
     <Compile Include="Assets\Script\MainMenu.cs" />
+    <Compile Include="Assets\Script\MainScreen.cs" />
     <Compile Include="Assets\Script\TileAutomate.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
