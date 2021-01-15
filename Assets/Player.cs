@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
         {
             // LOSE
             Debug.Log("Lose");
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(5);
         }
     }
     void TakeDamage(int damage)
