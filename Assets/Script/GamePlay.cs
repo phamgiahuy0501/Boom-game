@@ -51,6 +51,10 @@ public class GamePlay : MonoBehaviour
     }
     public void LoadMenu()
     {
+        Player.currentHealth = 100;
+        pauseMenuPanel.SetActive(false);
+        gameOverPanel.SetActive(false);
+        Time.timeScale = 1f;
         if (MainMenu.freetrialStatus)
         {
             SceneManager.LoadScene(0);
@@ -58,5 +62,6 @@ public class GamePlay : MonoBehaviour
         {
             SceneManager.LoadScene(3);
         }
+        
     }
 }

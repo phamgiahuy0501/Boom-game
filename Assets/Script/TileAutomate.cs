@@ -16,6 +16,7 @@ public class TileAutomate : MonoBehaviour
     public GameObject zombiePrefab;
     public GameObject bombAmuPrefab;
     public GameObject fireAmuPrefab;
+    public GameObject winPanel;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +28,7 @@ public class TileAutomate : MonoBehaviour
         {
             //END GAME
             Debug.Log("Game over! Win!");
+            winPanel.SetActive(true);
         }
     }
 

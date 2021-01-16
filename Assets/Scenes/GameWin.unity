@@ -310,7 +310,7 @@ GameObject:
   - component: {fileID: 385467348}
   - component: {fileID: 385467347}
   m_Layer: 5
-  m_Name: Pause Panel
+  m_Name: Win Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
